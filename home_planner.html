@@ -1,0 +1,10 @@
+{% extends "base.html" %}{% block content %}<h1>🏠 Home Budget Planner</h1>
+<form class="card" method="post" action="/generate-home">
+<label>Total budget (₹)</label><input name="budget" type="number" min="1" required>
+<label>Style</label><select name="style"><option>Modern</option><option>Minimal</option><option>Traditional</option><option>Scandinavian</option></select>
+<label>Rooms</label><div class="checks">{% for r in ['Living Room','Kitchen','Bedroom','Dining Room','Study'] %}<label><input type="checkbox" name="rooms" value="{{ r }}"> {{ r }}</label>{% endfor %}</div>
+<div class="grid"><div><label>Lights</label><input name="lights" type="number" min="0" value="0"></div>
+<div><label>Ceiling fans</label><input name="fans" type="number" min="0" value="0"></div>
+<div><label>Dining tables</label><input name="dining_tables" type="number" min="0" value="0"></div>
+<div><label>Beds</label><input name="beds" type="number" min="0" value="0"></div></div>
+<button>Get recommendations</button></form>{% endblock %}

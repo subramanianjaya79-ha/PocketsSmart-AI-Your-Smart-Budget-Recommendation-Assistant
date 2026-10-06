@@ -1,0 +1,5 @@
+{% extends "base.html" %}{% block content %}<h1>Recommendation history</h1>
+{% for r in rows %}<a class="card" style="display:block;margin-bottom:8px" href="/recommendations-details/{{ r.id }}">
+<b>{{ r.category|title }}</b> · Budget ₹{{ '%.0f'|format(r.inputs.budget) }} · Est. ₹{{ '%.0f'|format(r.result.total_estimate) }}
+<span class="mute">— {{ r.result.summary[:90] }}</span></a>
+{% else %}<p class="mute">No history yet.</p>{% endfor %}{% endblock %}

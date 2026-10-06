@@ -1,0 +1,8 @@
+{% extends "base.html" %}{% block content %}<h1>Welcome, {{ user.username }}</h1>
+<div class="grid">
+<a class="card" href="/home-planner">🏠 Home Planner</a><a class="card" href="/party-planner">🎉 Party Planner</a>
+<a class="card" href="/jewelry-planner">💍 Jewelry Planner</a></div>
+<h2>Recent recommendations</h2>
+{% for r in recent %}<a class="card" style="display:block;margin-bottom:8px" href="/recommendations-details/{{ r.id }}">
+{{ r.category|title }} · ₹{{ '%.0f'|format(r.inputs.budget) }} · {{ r.result["items"]|length }} items</a>
+{% else %}<p class="mute">Nothing yet. Try a planner above.</p>{% endfor %}{% endblock %}

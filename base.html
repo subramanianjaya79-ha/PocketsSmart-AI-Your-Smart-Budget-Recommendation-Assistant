@@ -1,0 +1,9 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>PocketSmart AI</title>
+<link rel="stylesheet" href="/static/style.css"></head><body>
+<nav><a class="brand" href="/">💼 PocketSmart AI</a>
+<a href="/testimonials">Testimonials</a>
+{% if user %}<a href="/dashboard">Dashboard</a><a href="/history">History</a><a href="/logout">Logout ({{ user.username }})</a>
+{% else %}<a href="/login">Login</a><a href="/register">Register</a>{% endif %}</nav>
+<main>{% block content %}{% endblock %}</main>
+<footer>© PocketSmart AI · Powered by Gemini · Budget-smart recommendations</footer></body></html>

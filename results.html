@@ -1,0 +1,10 @@
+{% extends "base.html" %}{% block content %}
+<h1>{{ {'home':'🏠 Home','party':'🎉 Party','jewelry':'💍 Jewelry'}[category] }} recommendations</h1>
+<p>{{ result.summary }}</p>
+<p class="price">Estimated ₹{{ '%.0f'|format(result.total_estimate) }} of ₹{{ '%.0f'|format(result.budget) }}
+<span class="{{ 'ok' if result.within_budget else 'err' }}">{{ '✓ within budget' if result.within_budget else '✗ over budget' }}</span></p>
+<div class="grid">{% for i in result["items"] %}<div class="card">
+<span class="mute">{{ i.category }} · {{ i.platform }}</span><h3>{{ i.name }}</h3>
+<div class="price">₹{{ '%.0f'|format(i.price) }}</div><p>{{ i.reason }}</p>
+<a href="{{ i.link }}" target="_blank" rel="noopener">View on {{ i.platform }} →</a></div>{% endfor %}</div>
+{% if result.tips %}<h2>Tips</h2><ul>{% for t in result.tips %}<li>{{ t }}</li>{% endfor %}</ul>{% endif %}{% endblock %}

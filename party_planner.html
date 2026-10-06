@@ -1,0 +1,7 @@
+{% extends "base.html" %}{% block content %}<h1>🎉 Party Budget Planner</h1>
+<form class="card" method="post" action="/generate-party">
+<label>Total budget (₹)</label><input name="budget" type="number" min="1" required>
+<label>Guests</label><input name="guests" type="number" min="1" required>
+<label>Event type</label><select name="event_type"><option>Birthday</option><option>Corporate</option><option>Wedding</option><option>Anniversary</option></select>
+<label>Venue</label><input name="venue" placeholder="Home, hall, rooftop…">
+<label>City</label><input name="city"><button>Plan my party</button></form>{% endblock %}
